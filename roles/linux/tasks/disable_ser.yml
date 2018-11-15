@@ -1,0 +1,27 @@
+#Tasks 67,70-94,100-104
+
+#Disabling service ports
+- name: disable unwanted services
+  replace:
+    path: /etc/services
+    regexp: "{{ item }}"
+    replace: "#{{ item }}"
+  ignore_errors: yes
+  with_items:
+    - "{{disable_services}}"
+
+#Disable services
+- name: Disable the services
+  systemd:
+   name: "{{ item }}"
+   enabled: no
+  ignore_errors: yes
+  with_items:
+    - "{{disable_services}}"
+
+#Stop Services
+- name: stop service 
+  service: name={{ item }} state=stopped
+  ignore_errors: yes  
+  with_items:
+    - "{{disable_services}}"

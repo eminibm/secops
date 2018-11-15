@@ -1,0 +1,885 @@
+#Protecting Resources Task for SSH
+
+
+#task 68
+
+- stat:
+     path: "{{ binOpenSSl }}"
+  register: openssl_file_stat
+
+- name: display file status of {{ binOpenSSl }}
+  debug: msg="File {{ binOpenSSl }} Not found on the end point"
+  when: openssl_file_stat.stat.exists == False
+
+- name: Changing {{ binOpenSSl }} file permissions
+  file: dest={{ binOpenSSl }} mode={{ binOpenSSlMode }}
+  when: openssl_file_stat.stat.exists == True
+
+
+#task 69
+
+- stat:
+     path: "{{ binScp }}"
+  register: binScp_file_stat
+
+- name: display file status of {{ binScp }}
+  debug: msg="File {{ binScp }} Not found on the end point"
+  when: binScp_file_stat.stat.exists == False
+
+- name: Changing {{ binScp }} file permissions
+  file: dest={{ binScp }} mode={{ binScpMode }}
+  when: binScp_file_stat.stat.exists == True
+
+#task 70
+
+- stat:
+     path: "{{ binScp2 }}"
+  register: binScp2_file_stat
+
+- name: display file status of {{ binScp2 }}
+  debug: msg="File {{ binScp2 }} Not found on the end point"
+  when: binScp2_file_stat.stat.exists == False
+
+- name: Changing {{ binScp2 }} file permissions
+  file: dest={{ binScp2 }} mode={{ binScp2Mode }}
+  when: binScp2_file_stat.stat.exists == True
+
+
+#task 71
+
+- stat:
+     path: "{{ binSftp }}"
+  register: binSftp_file_stat
+
+- name: display file status of {{ binSftp }}
+  debug: msg="File {{ binSftp }} Not found on the end point"
+  when: binSftp_file_stat.stat.exists == False
+
+- name: Changing {{ binSftp }} file permissions
+  file: dest={{ binSftp }} mode={{ binSftpMode }}
+  when: binSftp_file_stat.stat.exists == True
+
+
+#task 72
+
+- stat:
+     path: "{{ binSftp2 }}"
+  register: binSftp2_file_stat
+
+- name: display file status of {{ binSftp2 }}
+  debug: msg="File {{ binSftp2 }} Not found on the end point"
+  when: binSftp2_file_stat.stat.exists == False
+
+- name: Changing {{ binSftp2 }} file permissions
+  file: dest={{ binSftp2 }} mode={{ binSftp2Mode }}
+  when: binSftp2_file_stat.stat.exists == True
+
+
+#task 73
+
+- stat:
+     path: "{{ binSftpServer }}"
+  register: binSftpServer_file_stat
+
+- name: display file status of {{ binSftpServer }}
+  debug: msg="File {{ binSftpServer }} Not found on the end point"
+  when: binSftpServer_file_stat.stat.exists == False
+
+- name: Changing {{ binSftpServer }} file permissions
+  file: dest={{ binSftpServer }} mode={{ binSftpServerMode }}
+  when: binSftpServer_file_stat.stat.exists == True
+
+
+#task 74
+
+- stat:
+     path: "{{ binSftpServer2 }}"
+  register: binSftpServer2_file_stat
+
+- name: display file status of {{ binSftpServer2 }}
+  debug: msg="File {{ binSftpServer2 }} Not found on the end point"
+  when: binSftpServer2_file_stat.stat.exists == False
+
+- name: Changing {{ binSftpServer2 }} file permissions
+  file: dest={{ binSftpServer2 }} mode={{ binSftpServer2Mode }}
+  when: binSftpServer2_file_stat.stat.exists == True
+
+
+#task 75
+
+- stat:
+     path: "{{ binSlogin }}"
+  register: binSlogin_file_stat
+
+- name: display file status of {{ binSlogin }}
+  debug: msg="File {{ binSlogin }} Not found on the end point"
+  when: binSlogin_file_stat.stat.exists == False
+
+- name: Changing {{ binSlogin }} file permissions
+  file: dest={{ binSlogin }} mode={{ binSloginMode }}
+  when: binSlogin_file_stat.stat.exists == True
+
+
+#task 76
+
+- stat:
+     path: "{{ binSsh }}"
+  register: binSsh_file_stat
+
+- name: display file status of {{ binSsh }}
+  debug: msg="File {{ binSsh }} Not found on the end point"
+  when: binSsh_file_stat.stat.exists == False
+
+- name: Changing {{ binSsh }} file permissions
+  file: dest={{ binSsh }} mode={{ binSshMode }}
+  when: binSsh_file_stat.stat.exists == True
+
+
+#task 77
+
+- stat:
+     path: "{{ binSsh2 }}"
+  register: binSsh2_file_stat
+
+- name: display file status of {{ binSsh2 }}
+  debug: msg="File {{ binSsh2 }} Not found on the end point"
+  when: binSsh2_file_stat.stat.exists == False
+
+- name: Changing {{ binSsh2 }} file permissions
+  file: dest={{ binSsh2 }} mode={{ binSs2hMode }}
+  when: binSsh2_file_stat.stat.exists == True
+
+
+#task 78
+
+- stat:
+     path: "{{ binSshAdd }}"
+  register: binSshAdd_file_stat
+
+- name: display file status of {{ binSshAdd }}
+  debug: msg="File {{ binSshAdd }} Not found on the end point"
+  when: binSshAdd_file_stat.stat.exists == False
+
+- name: Changing {{ binSshAdd }} file permissions
+  file: dest={{ binSshAdd }} mode={{ binSshAddMode }}
+  when: binSshAdd_file_stat.stat.exists == True
+
+
+#task 79
+
+- stat:
+     path: "{{ binSshAdd2 }}"
+  register: binSshAdd2_file_stat
+
+- name: display file status of {{ binSshAdd2 }}
+  debug: msg="File {{ binSshAdd2 }} Not found on the end point"
+  when: binSshAdd2_file_stat.stat.exists == False
+
+- name: Changing {{ binSshAdd2 }} file permissions
+  file: dest={{ binSshAdd2 }} mode={{ binSshAdd2Mode }}
+  when: binSshAdd2_file_stat.stat.exists == True
+
+
+#task 80
+
+- stat:
+     path: "{{ binSshAgent }}"
+  register: binSshAgent_file_stat
+
+- name: display file status of {{ binSshAgent }}
+  debug: msg="File {{ binSshAgent }} Not found on the end point"
+  when: binSshAgent_file_stat.stat.exists == False
+
+- name: Changing {{ binSshAgent }} file permissions
+  file: dest={{ binSshAgent }} mode={{ binSshAgentMode }}
+  when: binSshAgent_file_stat.stat.exists == True
+
+
+#task 81
+
+- stat:
+     path: "{{ binSshAgent2 }}"
+  register: binSshAgent2_file_stat
+
+- name: display file status of {{ binSshAgent2 }}
+  debug: msg="File {{ binSshAgent2 }} Not found on the end point"
+  when: binSshAgent2_file_stat.stat.exists == False
+
+- name: Changing {{ binSshAgent2 }} file permissions
+  file: dest={{ binSshAgent2 }} mode={{ binSshAgent2Mode }}
+  when: binSshAgent2_file_stat.stat.exists == True
+
+
+#task 82
+
+- stat:
+     path: "{{ binSshAskPass }}"
+  register: binSshAskPass_file_stat
+
+- name: display file status of {{ binSshAskPass }}
+  debug: msg="File {{ binSshAskPass }} Not found on the end point"
+  when: binSshAskPass_file_stat.stat.exists == False
+
+- name: Changing {{ binSshAskPass }} file permissions
+  file: dest={{ binSshAskPass }} mode={{ binSshAskPassMode }}
+  when: binSshAskPass_file_stat.stat.exists == True
+
+
+#task 83
+
+- stat:
+     path: "{{ binSshAskPass2 }}"
+  register: binSshAskPass2_file_stat
+
+- name: display file status of {{ binSshAskPass2 }}
+  debug: msg="File {{ binSshAskPass2 }} Not found on the end point"
+  when: binSshAskPass2_file_stat.stat.exists == False
+
+- name: Changing {{ binSshAskPass2 }} file permissions
+  file: dest={{ binSshAskPass2 }} mode={{ binSshAskPass2Mode }}
+  when: binSshAskPass2_file_stat.stat.exists == True
+
+
+#task 84
+
+- stat:
+     path: "{{ binSshCertenroll2 }}"
+  register: binSshCertenroll2_file_stat
+
+- name: display file status of {{ binSshCertenroll2 }}
+  debug: msg="File {{ binSshCertenroll2 }} Not found on the end point"
+  when: binSshCertenroll2_file_stat.stat.exists == False
+
+- name: Changing {{ binSshCertenroll2 }} file permissions
+  file: dest={{ binSshCertenroll2 }} mode={{ binSshCertenroll2Mode }}
+  when: binSshCertenroll2_file_stat.stat.exists == True
+
+
+#task 85
+
+- stat:
+     path: "{{ binSshChrootmgr }}"
+  register: binSshChrootmgr_file_stat
+
+- name: display file status of {{ binSshChrootmgr }}
+  debug: msg="File {{ binSshChrootmgr }} Not found on the end point"
+  when: binSshChrootmgr_file_stat.stat.exists == False
+
+- name: Changing {{ binSshChrootmgr }} file permissions
+  file: dest={{ binSshChrootmgr }} mode={{ binSshChrootmgrMode }}
+  when: binSshChrootmgr_file_stat.stat.exists == True
+
+
+#task 86
+
+- stat:
+     path: "{{ binSshDummyShell }}"
+  register: binSshDummyShell_file_stat
+
+- name: display file status of {{ binSshDummyShell }}
+  debug: msg="File {{ binSshDummyShell }} Not found on the end point"
+  when: binSshDummyShell_file_stat.stat.exists == False
+
+- name: Changing {{ binSshDummyShell }} file permissions
+  file: dest={{ binSshDummyShell }} mode={{ binSshDummyShellMode }}
+  when: binSshDummyShell_file_stat.stat.exists == True
+
+
+#task 87
+
+- stat:
+     path: "{{ binSshKeygen }}"
+  register: binSshKeygen_file_stat
+
+- name: display file status of {{ binSshKeygen }}
+  debug: msg="File {{ binSshKeygen }} Not found on the end point"
+  when: binSshKeygen_file_stat.stat.exists == False
+
+- name: Changing {{ binSshKeygen }} file permissions
+  file: dest={{ binSshKeygen }} mode={{ binSshKeygenMode }}
+  when: binSshKeygen_file_stat.stat.exists == True
+
+
+#task 88
+
+- stat:
+     path: "{{ binSshKeygen2 }}"
+  register: binSshKeygen2_file_stat
+
+- name: display file status of {{ binSshKeygen2 }}
+  debug: msg="File {{ binSshKeygen2 }} Not found on the end point"
+  when: binSshKeygen2_file_stat.stat.exists == False
+
+- name: Changing {{ binSshKeygen2 }} file permissions
+  file: dest={{ binSshKeygen2 }} mode={{ binSshKeygen2Mode }}
+  when: binSshKeygen2_file_stat.stat.exists == True
+
+
+#task 89
+
+- stat:
+     path: "{{ binSshKeyscan }}"
+  register: binSshKeyscan_file_stat
+
+- name: display file status of {{ binSshKeyscan }}
+  debug: msg="File {{ binSshKeyscan }} Not found on the end point"
+  when: binSshKeyscan_file_stat.stat.exists == False
+
+- name: Changing {{ binSshKeyscan }} file permissions
+  file: dest={{ binSshKeyscan }} mode={{ binSshKeyscanMode }}
+  when: binSshKeyscan_file_stat.stat.exists == True
+
+
+#task 90
+
+- stat:
+     path: "{{ binSshPamClient }}"
+  register: binSshPamClient_file_stat
+
+- name: display file status of {{ binSshPamClient }}
+  debug: msg="File {{ binSshPamClient }} Not found on the end point"
+  when: binSshPamClient_file_stat.stat.exists == False
+
+- name: Changing {{ binSshPamClient }} file permissions
+  file: dest={{ binSshPamClient }} mode={{ binSshPamClientMode }}
+  when: binSshPamClient_file_stat.stat.exists == True
+
+
+#task 91
+
+- stat:
+     path: "{{ binSshProbe }}"
+  register: binSshProbe_file_stat
+
+- name: display file status of {{ binSshProbe }}
+  debug: msg="File {{ binSshProbe }} Not found on the end point"
+  when: binSshProbe_file_stat.stat.exists == False
+
+- name: Changing {{ binSshProbe }} file permissions
+  file: dest={{ binSshProbe }} mode={{ binSshProbeMode }}
+  when: binSshProbe_file_stat.stat.exists == True
+
+
+#task 92
+
+- stat:
+     path: "{{ binSshProbe2 }}"
+  register: binSshProbe2_file_stat
+
+- name: display file status of {{ binSshProbe2 }}
+  debug: msg="File {{ binSshProbe2 }} Not found on the end point"
+  when: binSshProbe2_file_stat.stat.exists == False
+
+- name: Changing {{ binSshProbe2 }} file permissions
+  file: dest={{ binSshProbe2 }} mode={{ binSshProbe2Mode }}
+  when: binSshProbe2_file_stat.stat.exists == True
+
+
+#task 93
+
+- stat:
+     path: "{{ binSshPubkeymgr }}"
+  register: binSshPubkeymgr_file_stat
+
+- name: display file status of {{ binSshPubkeymgr }}
+  debug: msg="File {{ binSshPubkeymgr }} Not found on the end point"
+  when: binSshPubkeymgr_file_stat.stat.exists == False
+
+- name: Changing {{ binSshPubkeymgr }} file permissions
+  file: dest={{ binSshPubkeymgr }} mode={{ binSshPubkeymgrMode }}
+  when: binSshPubkeymgr_file_stat.stat.exists == True
+
+
+#task 94
+
+- stat:
+     path: "{{ binSshSinger }}"
+  register: binSshSinger_file_stat
+
+- name: display file status of {{ binSshSinger }}
+  debug: msg="File {{ binSshSinger }} Not found on the end point"
+  when: binSshSinger_file_stat.stat.exists == False
+
+- name: Changing {{ binSshSinger }} file permissions
+  file: dest={{ binSshSinger }} mode={{ binSshSingerMode }}
+  when: binSshSinger_file_stat.stat.exists == True
+
+
+#task 95
+
+- stat:
+     path: "{{ binSshSinger2 }}"
+  register: binSshSinger2_file_stat
+
+- name: display file status of {{ binSshSinger2 }}
+  debug: msg="File {{ binSshSinger2 }} Not found on the end point"
+  when: binSshSinger2_file_stat.stat.exists == False
+
+- name: Changing {{ binSshSinger2 }} file permissions
+  file: dest={{ binSshSinger2 }} mode={{ binSshSinger2Mode }}
+  when: binSshSinger2_file_stat.stat.exists == True
+
+
+#task 96
+
+- stat:
+     path: "{{ libLibcryptoDotA }}"
+  register: libLibcryptoDotA_file_stat
+
+- name: display file status of {{ libLibcryptoDotA }}
+  debug: msg="File {{ libLibcryptoDotA }} Not found on the end point"
+  when: libLibcryptoDotA_file_stat.stat.exists == False
+
+- name: Changing {{ libLibcryptoDotA }} file permissions
+  file: dest={{ libLibcryptoDotA }} mode={{ libLibcryptoDotAMode }}
+  when: libLibcryptoDotA_file_stat.stat.exists == True
+
+
+#task 97
+
+- stat:
+     path: "{{ libLibsshDotA }}"
+  register: libLibsshDotA_file_stat
+
+- name: display file status of {{ libLibsshDotA }}
+  debug: msg="File {{ libLibsshDotA }} Not found on the end point"
+  when: libLibsshDotA_file_stat.stat.exists == False
+
+- name: Changing {{ libLibsshDotA }} file permissions
+  file: dest={{ libLibsshDotA }} mode={{ libLibsshDotAMode }}
+  when: libLibsshDotA_file_stat.stat.exists == True
+
+
+#task 98
+
+- stat:
+     path: "{{ libLibsslDotA }}"
+  register: libLibsslDotA_file_stat
+
+- name: display file status of {{ libLibsslDotA }}
+  debug: msg="File {{ libLibsslDotA }} Not found on the end point"
+  when: libLibsslDotA_file_stat.stat.exists == False
+
+- name: Changing {{ libLibsslDotA }} file permissions
+  file: dest={{ libLibsslDotA }} mode={{ libLibsslDotAMode }}
+  when: libLibsslDotA_file_stat.stat.exists == True
+
+
+#task 99
+
+- stat:
+     path: "{{ libLibZDotA }}"
+  register: libLibZDotA_file_stat
+
+- name: display file status of {{ libLibZDotA }}
+  debug: msg="File {{ libLibZDotA }} Not found on the end point"
+  when: libLibZDotA_file_stat.stat.exists == False
+
+- name: Changing {{ libLibZDotA }} file permissions
+  file: dest={{ libLibZDotA }} mode={{ libLibZDotAMode }}
+  when: libLibZDotA_file_stat.stat.exists == True
+
+
+#task 100
+
+- stat:
+     path: "{{ libexecOpensshSftpserver }}"
+  register: libexecOpensshSftpserver_file_stat
+
+- name: display file status of {{ libexecOpensshSftpserver }}
+  debug: msg="File {{ libexecOpensshSftpserver }} Not found on the end point"
+  when: libexecOpensshSftpserver_file_stat.stat.exists == False
+
+- name: Changing {{ libexecOpensshSftpserver }} file permissions
+  file: dest={{ libexecOpensshSftpserver }} mode={{ libexecOpensshSftpserverMode }}
+  when: libexecOpensshSftpserver_file_stat.stat.exists == True
+
+
+#task 101
+
+- stat:
+     path: "{{ libexecOpensshSshkeysign }}"
+  register: libexecOpensshSshkeysign_file_stat
+
+- name: display file status of {{ libexecOpensshSshkeysign }}
+  debug: msg="File {{ libexecOpensshSshkeysign }} Not found on the end point"
+  when: libexecOpensshSshkeysign_file_stat.stat.exists == False
+
+- name: Changing {{ libexecOpensshSshkeysign }} file permissions
+  file: dest={{ libexecOpensshSshkeysign }} mode={{ libexecOpensshSshkeysignMode }}
+  when: libexecOpensshSshkeysign_file_stat.stat.exists == True
+
+
+#task 102
+
+- stat:
+     path: "{{ libexecOpensshSshaskpass }}"
+  register: libexecOpensshSshaskpass_file_stat
+
+- name: display file status of {{ libexecOpensshSshaskpass }}
+  debug: msg="File {{ libexecOpensshSshaskpass }} Not found on the end point"
+  when: libexecOpensshSshaskpass_file_stat.stat.exists == False
+
+- name: Changing {{ libexecOpensshSshaskpass }} file permissions
+  file: dest={{ libexecOpensshSshaskpass }} mode={{ libexecOpensshSshaskpassMode }}
+  when: libexecOpensshSshaskpass_file_stat.stat.exists == True
+
+
+#task 103
+
+- stat:
+     path: "{{ libexecSftpserver }}"
+  register: libexecSftpserver_file_stat
+
+- name: display file status of {{ libexecSftpserver }}
+  debug: msg="File {{ libexecSftpserver }} Not found on the end point"
+  when: libexecSftpserver_file_stat.stat.exists == False
+
+- name: Changing {{ libexecSftpserver }} file permissions
+  file: dest={{ libexecSftpserver }} mode={{ libexecSftpserverMode }}
+  when: libexecSftpserver_file_stat.stat.exists == True
+
+
+#task 104
+
+- stat:
+     path: "{{ libexecSshkeysign }}"
+  register: libexecSshkeysign_file_stat
+
+- name: display file status of {{ libexecSshkeysign }}
+  debug: msg="File {{ libexecSshkeysign }} Not found on the end point"
+  when: libexecSshkeysign_file_stat.stat.exists == False
+
+- name: Changing {{ libexecSshkeysign }} file permissions
+  file: dest={{ libexecSshkeysign }} mode={{ libexecSshkeysignMode }}
+  when: libexecSshkeysign_file_stat.stat.exists == True
+
+
+#task 105
+
+- stat:
+     path: "{{ libexecSshrandhelper }}"
+  register: libexecSshrandhelper_file_stat
+
+- name: display file status of {{ libexecSshrandhelper }}
+  debug: msg="File {{ libexecSshrandhelper }} Not found on the end point"
+  when: libexecSshrandhelper_file_stat.stat.exists == False
+
+- name: Changing {{ libexecSshrandhelper }} file permissions
+  file: dest={{ libexecSshrandhelper }} mode={{ libexecSshrandhelperMode }}
+  when: libexecSshrandhelper_file_stat.stat.exists == True
+
+
+#task 106
+
+- stat:
+     path: "{{ libexecOpensshSftpserver }}"
+  register: libexecOpensshSftpserver_file_stat
+
+- name: display file status of {{ libexecOpensshSftpserver }}
+  debug: msg="File {{ libexecOpensshSftpserver }} Not found on the end point"
+  when: libexecOpensshSftpserver_file_stat.stat.exists == False
+
+- name: Changing {{ libexecOpensshSftpserver }} file permissions
+  file: dest={{ libexecOpensshSftpserver }} mode={{ libexecOpensshSftpserverMode }}
+  when: libexecOpensshSftpserver_file_stat.stat.exists == True
+
+
+#task 107
+
+- stat:
+     path: "{{ libexecOpensshSshkeysign }}"
+  register: libexecOpensshSshkeysign_file_stat
+
+- name: display file status of {{ libexecOpensshSshkeysign }}
+  debug: msg="File {{ libexecOpensshSshkeysign }} Not found on the end point"
+  when: libexecOpensshSshkeysign_file_stat.stat.exists == False
+
+- name: Changing {{ libexecOpensshSshkeysign }} file permissions
+  file: dest={{ libexecOpensshSshkeysign }} mode={{ libexecOpensshSshkeysignMode }}
+  when: libexecOpensshSshkeysign_file_stat.stat.exists == True
+
+
+#task 108
+
+- stat:
+     path: "{{ libexecOpensshSshaskpass }}"
+  register: libexecOpensshSshaskpass_file_stat
+
+- name: display file status of {{ libexecOpensshSshaskpass }}
+  debug: msg="File {{ libexecOpensshSshaskpass }} Not found on the end point"
+  when: libexecOpensshSshaskpass_file_stat.stat.exists == False
+
+- name: Changing {{ libexecOpensshSshaskpass }} file permissions
+  file: dest={{ libexecOpensshSshaskpass }} mode={{ libexecOpensshSshaskpassMode }}
+  when: libexecOpensshSshaskpass_file_stat.stat.exists == True
+
+
+#task 109
+
+- stat:
+     path: "{{ libexecSftpserver }}"
+  register: libexecSftpserver_file_stat
+
+- name: display file status of {{ libexecSftpserver }}
+  debug: msg="File {{ libexecSftpserver }} Not found on the end point"
+  when: libexecSftpserver_file_stat.stat.exists == False
+
+- name: Changing {{ libexecSftpserver }} file permissions
+  file: dest={{ libexecSftpserver }} mode={{ libexecSftpserverMode }}
+  when: libexecSftpserver_file_stat.stat.exists == True
+
+
+#task 110
+
+- stat:
+     path: "{{ libexecSshkeysign }}"
+  register: libexecSshkeysign_file_stat
+
+- name: display file status of {{ libexecSshkeysign }}
+  debug: msg="File {{ libexecSshkeysign }} Not found on the end point"
+  when: libexecSshkeysign_file_stat.stat.exists == False
+
+- name: Changing {{ libexecSshkeysign }} file permissions
+  file: dest={{ libexecSshkeysign }} mode={{ libexecSshkeysignMode }}
+  when: libexecSshkeysign_file_stat.stat.exists == True
+
+
+#task 111
+
+- stat:
+     path: "{{ libexecSshrandhelper }}"
+  register: libexecSshrandhelper_file_stat
+
+- name: display file status of {{ libexecSshrandhelper }}
+  debug: msg="File {{ libexecSshrandhelper }} Not found on the end point"
+  when: libexecSshrandhelper_file_stat.stat.exists == False
+
+- name: Changing {{ libexecSshrandhelper }} file permissions
+  file: dest={{ libexecSshrandhelper }} mode={{ libexecSshrandhelperMode }}
+  when: libexecSshrandhelper_file_stat.stat.exists == True
+
+
+#task 112
+
+- stat:
+     path: "{{ sbinSshd }}"
+  register: sbinSshd_file_stat
+
+- name: display file status of {{ sbinSshd }}
+  debug: msg="File {{ sbinSshd }} Not found on the end point"
+  when: sbinSshd_file_stat.stat.exists == False
+
+- name: Changing {{ sbinSshd }} file permissions
+  file: dest={{ sbinSshd }} mode={{ sbinSshdMode }}
+  when: sbinSshd_file_stat.stat.exists == True
+
+
+#task 113
+
+- stat:
+     path: "{{ sbinSshd2 }}"
+  register: sbinSshd2_file_stat
+
+- name: display file status of {{ sbinSshd2 }}
+  debug: msg="File {{ sbinSshd2 }} Not found on the end point"
+  when: sbinSshd2_file_stat.stat.exists == False
+
+- name: Changing {{ sbinSshd2 }} file permissions
+  file: dest={{ sbinSshd2 }} mode={{ sbinSshd2Mode }}
+  when: sbinSshd2_file_stat.stat.exists == True
+
+
+#task 114
+
+- stat:
+     path: "{{ sbinSshdcheckconf }}"
+  register: sbinSshdcheckconf_file_stat
+
+- name: display file status of {{ sbinSshdcheckconf }}
+  debug: msg="File {{ sbinSshdcheckconf }} Not found on the end point"
+  when: sbinSshdcheckconf_file_stat.stat.exists == False
+
+- name: Changing {{ sbinSshdcheckconf }} file permissions
+  file: dest={{ sbinSshdcheckconf }} mode={{ sbinSshdcheckconfMode }}
+  when: sbinSshdcheckconf_file_stat.stat.exists == True
+
+
+#task 115
+
+- stat:
+     path: "{{ libSvcMethodSshd }}"
+  register: libSvcMethodSshd_file_stat
+
+- name: display file status of {{ libSvcMethodSshd }}
+  debug: msg="File {{ libSvcMethodSshd }} Not found on the end point"
+  when: libSvcMethodSshd_file_stat.stat.exists == False
+
+- name: Changing {{ libSvcMethodSshd }} file permissions
+  file: dest={{ libSvcMethodSshd }} mode={{ libSvcMethodSshdMode }}
+  when: libSvcMethodSshd_file_stat.stat.exists == True
+
+
+#task 116
+
+- stat:
+     path: "{{ usrLibSshSshd }}"
+  register: usrLibSshSshd_file_stat
+
+- name: display file status of {{ usrLibSshSshd }}
+  debug: msg="File {{ usrLibSshSshd }} Not found on the end point"
+  when: usrLibSshSshd_file_stat.stat.exists == False
+
+- name: Changing {{ usrLibSshSshd }} file permissions
+  file: dest={{ usrLibSshSshd }} mode={{ usrLibSshSshdMode }}
+  when: usrLibSshSshd_file_stat.stat.exists == True
+
+
+#task 117
+
+- stat:
+     path: "{{ etcopensshSshdConfig }}"
+  register: etcopensshSshdConfig_file_stat
+
+- name: display file status of {{ etcopensshSshdConfig }}
+  debug: msg="File {{ etcopensshSshdConfig }} Not found on the end point"
+  when: etcopensshSshdConfig_file_stat.stat.exists == False
+
+- name: Changing {{ etcopensshSshdConfig }} file permissions
+  file: dest={{ etcopensshSshdConfig }} mode={{ etcopensshSshdConfigMode }}
+  when: etcopensshSshdConfig_file_stat.stat.exists == True
+
+
+#task 118
+
+- stat:
+     path: "{{ etcSshSshdConfig }}"
+  register: etcSshSshdConfig_file_stat
+
+- name: display file status of {{ etcSshSshdConfig }}
+  debug: msg="File {{ etcSshSshdConfig }} Not found on the end point"
+  when: etcSshSshdConfig_file_stat.stat.exists == False
+
+- name: Changing {{ etcSshSshdConfig }} file permissions
+  file: dest={{ etcSshSshdConfig }} mode={{ etcSshSshdConfigMode }}
+  when: etcSshSshdConfig_file_stat.stat.exists == True
+
+
+#task 119
+
+- stat:
+     path: "{{ etcSshSshd2config }}"
+  register: etcSshSshd2config_file_stat
+
+- name: display file status of {{ etcSshSshd2config }}
+  debug: msg="File {{ etcSshSshd2config }} Not found on the end point"
+  when: etcSshSshd2config_file_stat.stat.exists == False
+
+- name: Changing {{ etcSshSshd2config }} file permissions
+  file: dest={{ etcSshSshd2config }} mode={{ etcSshSshd2configMode }}
+  when: etcSshSshd2config_file_stat.stat.exists == True
+
+
+#task 120
+
+- stat:
+     path: "{{ etcSsh2Sshdconfig }}"
+  register: etcSsh2Sshdconfig_file_stat
+
+- name: display file status of {{ etcSsh2Sshdconfig }}
+  debug: msg="File {{ etcSsh2Sshdconfig }} Not found on the end point"
+  when: etcSsh2Sshdconfig_file_stat.stat.exists == False
+
+- name: Changing {{ etcSsh2Sshdconfig }} file permissions
+  file: dest={{ etcSsh2Sshdconfig }} mode={{ etcSsh2SshdconfigMode }}
+  when: etcSsh2Sshdconfig_file_stat.stat.exists == True
+
+
+#task 121
+
+- stat:
+     path: "{{ etcSsh2Sshd2config }}"
+  register: etcSsh2Sshd2config_file_stat
+
+- name: display file status of {{ etcSsh2Sshd2config }}
+  debug: msg="File {{ etcSsh2Sshd2config }} Not found on the end point"
+  when: etcSsh2Sshd2config_file_stat.stat.exists == False
+
+- name: Changing {{ etcSsh2Sshd2config }} file permissions
+  file: dest={{ etcSsh2Sshd2config }} mode={{ etcSsh2Sshd2configMode }}
+  when: etcSsh2Sshd2config_file_stat.stat.exists == True
+
+
+#task 122
+
+- stat:
+     path: "{{ etcSshdconfig }}"
+  register: etcSshdconfig_file_stat
+
+- name: display file status of {{ etcSshdconfig }}
+  debug: msg="File {{ etcSshdconfig }} Not found on the end point"
+  when: etcSshdconfig_file_stat.stat.exists == False
+
+- name: Changing {{ etcSshdconfig }} file permissions
+  file: dest={{ etcSshdconfig }} mode={{ etcSshdconfigMode }}
+  when: etcSshdconfig_file_stat.stat.exists == True
+
+
+#task 123
+
+- stat:
+     path: "{{ etcSshd2config }}"
+  register: etcSshd2config_file_stat
+
+- name: display file status of {{ etcSshd2config }}
+  debug: msg="File {{ etcSshd2config }} Not found on the end point"
+  when: etcSshd2config_file_stat.stat.exists == False
+
+- name: Changing {{ etcSshd2config }} file permissions
+  file: dest={{ etcSshd2config }} mode={{ etcSshd2configMode }}
+  when: etcSshd2config_file_stat.stat.exists == True
+
+
+#task 124
+
+- stat:
+     path: "{{ usrLocalEtcSshconfig }}"
+  register: usrLocalEtcSshconfig_file_stat
+
+- name: display file status of {{ usrLocalEtcSshconfig }}
+  debug: msg="File {{ usrLocalEtcSshconfig }} Not found on the end point"
+  when: usrLocalEtcSshconfig_file_stat.stat.exists == False
+
+- name: Changing {{ usrLocalEtcSshconfig }} file permissions
+  file: dest={{ usrLocalEtcSshconfig }} mode={{ usrLocalEtcSshconfigMode }}
+  when: usrLocalEtcSshconfig_file_stat.stat.exists == True
+
+
+#task 125
+
+- stat:
+     path: "{{ usrLocalEtcSshd2config }}"
+  register: usrLocalEtcSshd2config_file_stat
+
+- name: display file status of {{ usrLocalEtcSshd2config }}
+  debug: msg="File {{ usrLocalEtcSshd2config }} Not found on the end point"
+  when: usrLocalEtcSshd2config_file_stat.stat.exists == False
+
+- name: Changing {{ usrLocalEtcSshd2config }} file permissions
+  file: dest={{ usrLocalEtcSshd2config }} mode={{ usrLocalEtcSshd2configMode }}
+  when: usrLocalEtcSshd2config_file_stat.stat.exists == True
+
+
+#task 126
+
+- stat:
+     path: "{{ usrLibSshSshkeysign }}"
+  register: usrLibSshSshkeysign_file_stat
+
+- name: display file status of {{ usrLibSshSshkeysign }}
+  debug: msg="File {{ usrLibSshSshkeysign }} Not found on the end point"
+  when: usrLibSshSshkeysign_file_stat.stat.exists == False
+
+- name: Changing {{ usrLibSshSshkeysign }} file permissions
+  file: dest={{ usrLibSshSshkeysign }} mode={{ usrLibSshSshkeysignMode }}
+  when: usrLibSshSshkeysign_file_stat.stat.exists == True

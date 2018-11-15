@@ -1,0 +1,5 @@
+#task no 126
+- name: restrict permission of snmp.conf
+  shell: cd /etc/ ; find . -type f -name snmpd.conf -exec chmod 0640 {} \;
+  args:
+    executable: /bin/bash

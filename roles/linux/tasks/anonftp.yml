@@ -1,0 +1,33 @@
+#Tasks 53-60
+- stat: path=/etc/vsftpd.conf
+  register: stat_conf
+
+- name: capturing anonymous ftp home directory
+  shell: cat /etc/vsftpd.conf | grep anon_root= | cut -f2 -d"="
+  register: root_dir
+
+- stat: path="{{ root_dir.stdout }}"
+  register: stat_root
+
+- stat: path={{ root_dir.stdout }}/bin
+  register: stat_bin
+  when: stat_root.stat.exists == True
+
+- stat: path={{ root_dir.stdout }}/lib
+  register: stat_lib
+  when: stat_root.stat.exists == True
+
+- name: securing ftp by ensuring root ownership and restricting permissions to files and directories
+  file: dest='{{ item }}' owner=root mode=u=rwx,g-w,o-w recurse=yes
+  with_items: "{{root_dir.stdout_lines}}"
+  when: stat_root.stat.exists == True
+  
+- name: Securing anon ftp bin directory files
+  file: dest='{{ item  }}/bin' owner=root mode=u=x,g=x,o=x recurse=yes
+  with_items: "{{root_dir.stdout_lines}}"
+  when: stat_bin.stat.exists == True
+
+- name: Securing anon ftp lib directory files
+  file: path='{{ item }}/lib' owner=root mode=u=rx,g=rx,o=rx recurse=yes
+  with_items: "{{root_dir.stdout_lines}}"
+  when: stat_lib.stat.exists == True

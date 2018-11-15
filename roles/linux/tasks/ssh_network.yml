@@ -1,0 +1,84 @@
+#Task 40 (Ssh key regeneration interval)
+- name: replace line in ssh config file to set key regeneration interval to 3600 
+  lineinfile:
+      dest: '{{SSH_CONFIG_FILE}}'
+      regexp: '^(.*)KeyRegenerationInterval(.*)$'
+      line: '{{SSH_KEYREGENERATIONINTERVAL}}'
+      backrefs: yes
+
+- lineinfile:
+       path: '{{SSH_CONFIG_FILE}}'
+       line: '{{SSH_KEYREGENERATIONINTERVAL}}'
+
+
+#Task 41 (Ssh protocol)
+- name: replace line in ssh config file to set protocol change to 2
+  lineinfile:
+      dest: '{{SSH_CONFIG_FILE}}'
+      regexp: '^(.*)Protocol(.*)$'
+      line: '{{SSH_PROTOCOL}}'
+      backrefs: yes
+
+- lineinfile:
+      path: '{{SSH_CONFIG_FILE}}'
+      line: '{{SSH_PROTOCOL}}'
+
+
+#Task 44 (Ssh Gateway port)
+
+- name: replace line in ssh config file to set GatewayPorts to no
+  lineinfile:
+      dest: '{{SSH_CONFIG_FILE}}'
+      regexp: '^(.*)GatewayPorts(.*)$'
+      line: "{{SSH_GATEWAYPORTS}}"
+      backrefs: yes
+
+- lineinfile:
+      path: '{{SSH_CONFIG_FILE}}'
+      line: '{{SSH_GATEWAYPORTS}}'
+
+#Task 147 (Ssh Permit User Environment)
+
+- name: replace line in ssh config file to set PermitUserEnvironment to no
+  lineinfile:
+      dest: '{{SSH_CONFIG_FILE}}'
+      regexp: '^(.*)PermitUserEnvironment(.*)$'
+      line: "{{SSH_PERMITUSERENV}}"
+      backrefs: yes
+
+- lineinfile:
+      path: '{{SSH_CONFIG_FILE}}'
+      line: '{{SSH_PERMITUSERENV}}'
+
+#Task 148 (Ssh Strict Modes)
+
+- name: replace line in ssh config file to set Strict Modes to yes
+  lineinfile:
+      dest: '{{SSH_CONFIG_FILE}}'
+      regexp: '^(.*)StrictModes(.*)$'
+      line: "{{SSH_STRICTMODES}}"
+      backrefs: yes
+
+- lineinfile:
+      path: '{{SSH_CONFIG_FILE}}'
+      line: '{{SSH_STRICTMODES}}'
+
+#Task 149 (Ssh Accept Environment)
+
+- name: restrict ssh access by resetting AcceptEnv 
+  lineinfile:
+      dest: '{{SSH_CONFIG_FILE}}'
+      regexp: '^(.*)AcceptEnv(.*)$'
+      line: "{{SSH_ACCEPTENV}}"
+      backrefs: yes
+
+- lineinfile:
+      path: '{{SSH_CONFIG_FILE}}'
+      line: '{{SSH_ACCEPTENV}}'
+
+#Restart SSH Service to reflect the above ssh network changes 
+- name: restarting ssh service to consider the above ssh network changes
+  service:
+      name: sshd
+      state: restarted  
+  ignore_errors: yes

@@ -1,0 +1,48 @@
+#Tasks 65-66
+- name: delete /etc/hosts.equiv
+  file:
+    path: /etc/hosts.equiv
+    state: absent
+
+- name: Add no_hosts_equiv
+  lineinfile: dest=/etc/pam.d/rlogin
+              line="no_hosts_equiv"
+              insertafter="^#?/lib/security/pam_rhosts_auth.so"
+  ignore_errors: yes
+
+#tasks 102-104
+- name: Disable the nis service
+  systemd:
+    name: nis
+    enabled: no
+  ignore_errors: yes
+
+- name: Disable the services
+  systemd:
+    name: "{{ item }}"
+    enabled: no
+  ignore_errors: yes
+  with_items:
+    - 'daytime'
+    - 'systat'
+    - 'netstat'
+    - 'nfs'
+    - 'chargen'
+    - 'discard'
+    - 'echo'
+    - 'finger'
+    - 'rwho'
+    - 'rstatd'
+    - 'tftp'
+    - 'rwalld'
+    - 'rusersd'
+    - 'discard'
+    - 'bootps'
+    - 'sprayd'
+    - 'pcnfsd'
+    - 'cmsd'
+    - 'dtspcd'
+    - 'ttdbserver'
+    - 'telnet'
+    - 'vsftpd'
+    - 'rexd'

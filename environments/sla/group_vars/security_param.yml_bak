@@ -1,0 +1,43 @@
+#Login param
+PASS_MAX_DAYS: PASS_MAX_DAYS 60
+
+#Secure network
+syncookies: net.ipv4.tcp_syncookies=1
+icmp_broadcasts: net.ipv4.icmp_echo_ignore_broadcasts=1
+network_redirects: net.ipv4.conf.all.accept_redirects=0
+
+#Disable services
+disable_services:
+- "daytime"
+- "systat"
+- "netstat"
+- "nfs-kernel-server"
+- "chargen"
+- "discard"
+- "echo"
+- "finger"
+- "rwho"
+- "rstatd"
+- "tftp"
+- "rwalld"
+- "rusersd"
+- "discard"
+- "bootps"
+- "sprayd"
+- "pcnfsd"
+- "cmsd"
+- "dtspcd"
+- "ttdbserver"
+- "telnet"
+- "vsftpd"
+- "rexd"
+- "nis"
+
+#Ssh network security
+SSH_CONFIG_FILE: /etc/ssh/sshd_config
+SSH_KEYREGENERATIONINTERVAL: KeyRegenerationInterval 3600
+SSH_PROTOCOL: Protocol 2
+SSH_GATEWAYPORTS: GatewayPorts no
+SSH_PERMITUSERENV: PermitUserEnvironment no
+SSH_STRICTMODES: StrictModes no
+SSH_ACCEPTENV: AcceptEnv LANG LC_*

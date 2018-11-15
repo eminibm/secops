@@ -1,0 +1,39 @@
+#Adding parameters in network security settings
+
+#Enable tcp syncookies to prevent syn flooding
+  - name: replace line
+    lineinfile:
+      dest: /etc/sysctl.conf
+      regexp: '^(.*)net.ipv4.tcp_syncookies(.*)$'
+      line: "{{syncookies}}"
+      backrefs: yes
+
+  - lineinfile:
+     path: /etc/sysctl.conf
+     line: 'net.ipv4.tcp_syncookies=1'
+
+
+#Turn off ICMP broadcasts
+  - name: replace line
+    lineinfile:
+      dest: /etc/sysctl.conf
+      regexp: '^(.*)net.ipv4.icmp_echo_ignore_broadcasts(.*)$'
+      line: "{{icmp_broadcasts}}"
+      backrefs: yes
+
+  - lineinfile:
+     path: /etc/sysctl.conf
+     line: 'net.ipv4.icmp_echo_ignore_broadcasts=1'
+
+
+#Disable ICMP Redirect Acceptance
+  - name: replace line
+    lineinfile:
+      dest: /etc/sysctl.conf
+      regexp: '^(.*)net.ipv4.conf.all.accept_redirects(.*)$'
+      line: "{{network_redirects}}"
+      backrefs: yes
+
+  - lineinfile:
+     path: /etc/sysctl.conf
+     line: 'net.ipv4.conf.all.accept_redirects=0'

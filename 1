@@ -1,0 +1,24 @@
+#Adding parameters in network security settings
+
+#Enable tcp syncookies to prevent syn flooding
+#- name: Comment out pipeline archive in fstab
+      replace:
+        dest: /etc/sysctl.conf
+        regexp: '^net.ipv4.tcp_syncookies =0'
+        replace: '#net.ipv4.tcp_syncookies =1'
+      tags: update-sysctl
+
+  - lineinfile:
+     path: /etc/sysctl.conf
+     line: 'net.ipv4.tcp_syncookies =1'
+
+#Turn off ICMP broadcasts
+  - lineinfile:
+     path: /etc/sysctl.conf
+     line: 'net.ipv4.icmp_echo_ignore_broadcasts = 1'
+  
+#Disable ICMP Redirect Acceptance
+  - lineinfile:
+     path: /etc/sysctl.conf
+     line: 'net.ipv4.conf.all.accept_redirects = 0'
+

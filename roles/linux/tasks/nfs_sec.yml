@@ -1,0 +1,2 @@
+- name: Changing permissions and ownership of "/etc/exports", set "644 and root ownership"
+  file: dest=/etc/exports  owner=root mode=g=r,o=r,u=rw

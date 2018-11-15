@@ -1,0 +1,17 @@
+#- hosts: all
+#  gather_facts: False ##Don't change.
+#  pre_tasks:
+#    - name: Adding local server ssh keys to remote server
+#      authorized_key: user='{{ hostvars[inventory_hostname].ansible_user }}'
+#           key="{{ lookup('file', '~/.ssh/id_rsa.pub')}}"
+#           path='/{{ hostvars[inventory_hostname].ansible_user }}/.ssh/authorized_keys'
+#      tags: ['linuxservers', 'linux']
+
+
+### Component - Linux Security Configuration ###
+- hosts: linuxservers
+  tags: ['linux','linuxservers']
+  roles:
+    - linux
+
+

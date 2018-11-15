@@ -1,0 +1,11 @@
+  - name: replace line
+    lineinfile:
+      dest: /etc/ftpusers
+      regexp: '^(.*)root(.*)$'
+      line: "root"
+      backrefs: yes
+
+  - lineinfile:
+     path: /etc/ftpusers
+     line: 'root'
+

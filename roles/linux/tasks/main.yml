@@ -1,0 +1,44 @@
+
+# Include global variables
+- name: Include SDI global variables
+  include_vars: "environments/sla/group_vars/security_param.yml"
+
+- name: Update Linux Security parameters
+  include_tasks: roles/linux/tasks/configure_security.yml
+  tags: security_param_update
+
+- name: Protecting Resources parameters
+  include_tasks: roles/linux/tasks/permissions.yml
+  tags: protect_permission_update
+
+- name: Add network security settings
+  include_tasks: roles/linux/tasks/network_security.yml
+  tags: sysctl_update
+
+- name: Add root in ftpuser settings
+  include_tasks: roles/linux/tasks/ftpusers.yml
+  tags: ftpuser_update
+
+- name: Changing permissions and ownership of nfs file /etc/exports
+  include_tasks: roles/linux/tasks/nfs_sec.yml
+  tags: nfs_update
+
+#- name: Disable unwanted network services
+#  include_tasks: roles/linux/tasks/disable_ser.yml
+#  tags: disable_services_update
+
+- name: Network Remaining Tasks
+  include_tasks: roles/linux/tasks/networktasks.yml
+  tags: network_settings_update
+
+- name: anon ftp securing tasks
+  include_tasks: roles/linux/tasks/anonftp.yml
+  tags: anonftp_settings_update
+
+- name: Ssh network securing tasks
+  include_tasks: roles/linux/tasks/ssh_network.yml
+  tags: ssh_network_settings_update
+
+- name: Ssh protecting_resources tasks
+  include_tasks: roles/linux/tasks/protecting_resources_sshTask.yml
+  tags: ssh_protecting_resources

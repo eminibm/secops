@@ -1,0 +1,23 @@
+- name: Providing write access to group for log files in "/var/log/wtmp", adding "+w"
+  file: dest=/var/log/wtmp mode=g+w
+
+- name: Providing write access to group for log files in "/var/log/faillog", adding "+w"
+  file: dest=/var/log/faillog mode=g+w
+
+- name: Providing write access to group for log files in "/var/log/tallylog", adding "+w"
+  file: dest=/var/log/tallylog mode=g+w
+
+- name: Providing write access to group for log files in "/var/log/messages", adding "+w"
+  file: dest=/var/log/messages mode=g+w
+
+- name: Providing write access to group for log files in "/var/log/syslog", adding "+w"
+  file: dest=/var/log/syslog mode=g+w
+
+- name: Providing write access to group for log files in "/var/log/secure", adding "+w"
+  file: dest=/var/log/secure mode=g+w
+
+- name: Providing write access to group for log files in "/var/log/authlog", adding "+w"
+  file: dest=/var/log/auth.log mode=g+w
+
+- name: Changing perm of "/etc/profile.d/IBMsinit.sh", set "rx"
+  file: dest=/etc/profile.d/IBMsinit.sh  mode=g=rx,o=rx

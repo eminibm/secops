@@ -1,0 +1,10 @@
+- name: replace line
+  lineinfile: 
+      dest: /etc/login.defs  
+      regexp: '^(.*)PASS_MAX_DAYS(.*)$' 
+      line: '{{PASS_MAX_DAYS}}'
+      backrefs: yes
+             
+
+
+

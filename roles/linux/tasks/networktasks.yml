@@ -1,0 +1,13 @@
+#Tasks 65-66
+- name: delete /etc/hosts.equiv
+  file:
+    path: /etc/hosts.equiv
+    state: absent
+
+- name: Add no_hosts_equiv
+  lineinfile: dest=/etc/pam.d/rlogin
+              line="no_hosts_equiv"
+              insertafter="^#?/lib/security/pam_rhosts_auth.so"
+  ignore_errors: yes
+
+
