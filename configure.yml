@@ -13,9 +13,3 @@
   tags: ['linux','linuxservers']
   roles:
     - linux
-
-- hosts: linuxservers2
-  tags: ['linux2','linuxservers2']
-  roles:
-    - linux
-

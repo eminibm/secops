@@ -1,0 +1,5 @@
+- hosts: linuxservers2
+  tags: ['linux2','linuxservers2']
+  roles:
+    - linux
+
